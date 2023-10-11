@@ -1,10 +1,17 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 
 const Pateintreg = () => {
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: ''
+    name:"",
+    username:""
+    ,email:"",
+    password:"",
+    birth_date:""
+    ,gender:""
+    ,mobile_no:"",
+    emergencyname:""
+    ,emergencyphone:""
   });
 
   const handleChange = (e) => {
@@ -12,8 +19,12 @@ const Pateintreg = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+ await axios.post("http://localhost:5000/createpatient",formData)
+
+
+
     console.log('Form submitted:', formData);
     // You can add further logic to handle form submission (e.g., API call).
   };
@@ -70,8 +81,8 @@ const Pateintreg = () => {
         Birthday:
         <input
           type="date"
-          name="birthday"
-          value={formData.Birthday}
+          name="birth_date"
+          value={formData.birth_date}
           onChange={handleChange}
         />
       </label>
@@ -80,8 +91,8 @@ const Pateintreg = () => {
         Gender:
         <input
           type="text"
-          name="text"
-          value={formData.Gender}
+          name="gender"
+          value={formData.gender}
           onChange={handleChange}
         />
       </label>
@@ -91,8 +102,27 @@ const Pateintreg = () => {
         Mobile number:
         <input
           type="Mobile number"
-          name="Mobile number"
-          value={formData.Mobilenumber}
+          name="mobile_no"
+          value={formData.mobile_no}
+          onChange={handleChange}
+        />
+      </label>
+      
+      <label>
+      emergencyphone:
+        <input
+          type="Mobile number"
+          name="emergencyphone"
+          value={formData.emergencyphone}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+      emergencyname:
+        <input
+          type="Mobile number"
+          name="emergencyname"
+          value={formData.emergencyname}
           onChange={handleChange}
         />
       </label>

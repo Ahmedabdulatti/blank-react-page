@@ -9,7 +9,7 @@ function Admin(){
         <Link to="AddAdmin">
         <button type="submit">Add Adminstartor</button>
         </Link> 
-        <Link to="">   
+        <Link to="remove">   
         <button type="submit">Remove Doctor/Patient/Admin</button>
         </Link>
         <Link to="reqs">   

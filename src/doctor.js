@@ -1,12 +1,13 @@
 
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 export default function Doctor(){
     const {id}=useParams();
     const [formData, setFormData] = useState({
         affiliation: '',
-        hourlyrate: '',
-        id:id
+        rate: '',
+        username:id
         ,email:''
       });
     
@@ -17,6 +18,8 @@ export default function Doctor(){
     
       const handleSubmit = (e) => {
         e.preventDefault();
+
+        axios.put("http://localhost:5000/docedit",formData)
         console.log('Form submitted:', formData);
         // You can add further logic to handle form submission (e.g., API call).
       };
@@ -47,8 +50,8 @@ export default function Doctor(){
             hourlyrate:
             <input
               type="text"
-              name="hourlyrate"
-              value={formData.hourlyrate}
+              name="rate"
+              value={formData.rate}
               onChange={handleChange}
             />
       </label>
