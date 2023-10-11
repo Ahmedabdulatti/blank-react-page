@@ -9,6 +9,7 @@ import Reqs from './viewreqs';
 import Doctor from './doctor';
 import Patient from './patient';
 import Addmember from './addmember';
+import Patientapps from './patientapps';
 function App() {
   return (
     <Router>
@@ -21,9 +22,9 @@ function App() {
          <Route path="/admin/reqs" element={<Reqs/>} />
          <Route path="doctor/:id" element={<Doctor/>} />
          <Route path="patient/:id" element={<Patient/>}/>
-         <Route path="patient/:id/addmember" element={<Addmember/>}
-          />
-      </Routes>
+         <Route path="patient/:id/addmember" element={<Addmember/>}/>
+         <Route path="/Patientapps" element={<Patientapps/>}/>
+         </Routes>
     </Router>
   );
   
