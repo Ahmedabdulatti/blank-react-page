@@ -1,6 +1,7 @@
 
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 export default function Addmember(){
     const {id}=useParams();
     const [formData, setFormData] = useState({
@@ -19,6 +20,8 @@ export default function Addmember(){
     
       const handleSubmit = (e) => {
         e.preventDefault();
+        axios.post("http://localhost:5000/addmember",{familymem1:formData,username:id})
+     
         console.log('Form submitted:', formData);
         // You can add further logic to handle form submission (e.g., API call).
       };

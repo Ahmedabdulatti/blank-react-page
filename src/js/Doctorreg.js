@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-
+import axios from 'axios';
 const Doctorreg = () => {
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    name:'',
-    dateofbirth:'',
-    affiliation:'',
-    hourlyrate:'',
-    edu:''
+    username:""
+    ,name:''
+    ,email:""
+    ,education:''
+    ,affialiation:""
+    ,speciality:""
+    ,rate:""
+    ,date:""
+    ,password:''
   });
 
   const handleChange = (e) => {
@@ -17,8 +18,10 @@ const Doctorreg = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
+ await axios.post("http://localhost:5000/createdoctor",formData)
     console.log('Form submitted:', formData);
     // You can add further logic to handle form submission (e.g., API call).
   };
@@ -67,8 +70,8 @@ const Doctorreg = () => {
         Birthday:
         <input
           type="date"
-          name="dateofbirth"
-          value={formData.Birthday}
+          name="date"
+          value={formData.date}
           onChange={handleChange}
         />
       </label>
@@ -87,35 +90,43 @@ const Doctorreg = () => {
         Hourly rate:
         <input
           type="number"
-          name="hourlyrate"
-          value={formData.hourlyrate}
+          name="rate"
+          value={formData.rate}
           onChange={handleChange}
         />
         
       </label>
       <br />
       <label>
+        education:
+        <input
+          type="text"
+          name="education"
+          value={formData.education}
+          onChange={handleChange}
+        />
+      </label>
+
+  <label>
         Affiliation:
         <input
-          type="text"
-          name="affiliation"
-          value={formData.affiliation}
+          
+          name="affialiation"
+          value={formData.affialiation}
           onChange={handleChange}
         />
       </label>
-      <br />
+    
+    
       <label>
-         Education Background:
+        speciality:
         <input
           type="text"
-          name="edu"
-          value={formData.edu}
+          name="speciality"
+          value={formData.speciality}
           onChange={handleChange}
         />
       </label>
-      <br />
-    
-    
       <br />
     
      

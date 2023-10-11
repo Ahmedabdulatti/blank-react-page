@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import axios from 'axios';
 const AddAdminstrator = () => {
   const [formData, setFormData] = useState({
     username: '',
@@ -14,6 +14,8 @@ const AddAdminstrator = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+ axios.post("http://localhost:5000/createadmin",formData)
     console.log('Form submitted:', formData);
     // You can add further logic to handle form submission (e.g., API call).
   };
@@ -31,6 +33,7 @@ const AddAdminstrator = () => {
       <label>
         Username:
         <input
+        required
           type="text"
           name="username"
           value={formData.username}
