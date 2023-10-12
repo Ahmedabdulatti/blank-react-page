@@ -1,10 +1,22 @@
 import dummydata from "./dummydata";
-
-
+import axios from "axios";
+import { useState,useEffect } from "react";
 export default function Reqs(){
+
+  
+const [apt,setapt]=useState([])
+useEffect(()=>{
+    async function get(){
+setapt((await axios.get(`http://localhost:5000/viewdoctors`)).data)
+console.log(apt)
+    }
+    get()
+},[])
     return(
+
+      
         
-        <>   {   dummydata.map((data)=>
+        <>   {  apt.map((data)=>
 
   <div>
         <br />
@@ -20,7 +32,7 @@ export default function Reqs(){
         <br />
         <label>
           Birthday:
-         {data.birthday}
+         {data.date}
         </label>
         <br />
         <label>
@@ -36,12 +48,12 @@ export default function Reqs(){
         <br />
         <label>
           Affiliation:
-        {data.affliation}
+        {data.affialiation}
         </label>
         <br />
         <label>
            Education Background:
-        {data.background}
+        {data.education}
         </label>
         <br />
       

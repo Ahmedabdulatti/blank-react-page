@@ -3,7 +3,7 @@ import { useState, React, useEffect } from "react";
 import { TableContainer, Table, TableBody, TableRow, TableCell, Paper, TableHead } from "@mui/material";
 import axios from "axios";
 
-function PatientApps() {
+function Alldocs() {
 
     const {id}=useParams();
     const [formData, setFormData] = useState({
@@ -16,10 +16,10 @@ function PatientApps() {
 
 const [search,sets]=useState('')
     //Dummy data 
-  const [appointments,setapt] = useState({appointments:[]})
+  const [appointments,setapt] = useState([])
 useEffect(()=>{
   async function get(){
-    setapt((await axios.get(`http://localhost:5000/patientapt?username=${id}`)).data)
+    setapt((await axios.get("http://localhost:5000/alldocs?username=omarika")).data)
     console.log(appointments)
   }
   get()
@@ -39,17 +39,18 @@ useEffect(()=>{
                 <TableRow>
                  
                   <TableCell>Doctor</TableCell>
-                  <TableCell>Date</TableCell>
+                  <TableCell>speciality</TableCell>
                   <TableCell>Status</TableCell>
-                  <TableCell>Details</TableCell>
+                  <TableCell>price</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {appointments.appointments?.filter((row)=>row.doctor.name.includes(search)).map((row) => (
+                {appointments.filter((row)=>row.name.includes(search)).map((row) => (
                   <TableRow key={row.id}>
                   
-                    <TableCell>{row.doctor.name}</TableCell>
-                    <TableCell>{row.time}</TableCell>
+                    <TableCell>{row.name}</TableCell>
+                    <TableCell>{row.speciality}</TableCell>
+                    <TableCell>{row.price}</TableCell>
                     <TableCell>
                   <button 
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
@@ -69,4 +70,4 @@ useEffect(()=>{
   );
 }
 
-export default PatientApps;
+export default Alldocs;
