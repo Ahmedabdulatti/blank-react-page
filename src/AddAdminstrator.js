@@ -38,6 +38,7 @@ const AddAdminstrator = () => {
           name="username"
           value={formData.username}
           onChange={handleChange}
+          
         />
       </label>
       <br />
@@ -49,6 +50,7 @@ const AddAdminstrator = () => {
           name="password"
           value={formData.password}
           onChange={handleChange}
+          req
         />
   </label>
      
