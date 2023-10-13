@@ -17,6 +17,7 @@ const Remove = () => {
     
  axios.delete(`http://localhost:5000/deleteruser?username=${formData.username}`)
     console.log('Form submitted:', formData);
+    alert("Form submitted");
     // You can add further logic to handle form submission (e.g., API call).
   };
 

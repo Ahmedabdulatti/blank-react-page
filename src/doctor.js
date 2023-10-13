@@ -1,5 +1,5 @@
 
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 export default function Doctor(){
@@ -21,55 +21,75 @@ export default function Doctor(){
 
         axios.put("http://localhost:5000/docedit",formData)
         console.log('Form submitted:', formData);
+        alert("Form submitted");
         // You can add further logic to handle form submission (e.g., API call).
       };
     
       return (
-        <>
-        <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
+        <div className="flex flex-col gap-8">
+        
     
-    
-    
-    <label>
+          <div>
+         <h2 className="text-3xl font-semibold">
             Edit doctor info
           
-          </label> 
-          <br />
-          <label>
-            email:
+          </h2> 
+          </div>
+          <div>
+          <h2 className="text-2xl font-semibold">
+            Email:</h2>
             <input
               type="text"
               name="email"
               value={formData.email}
               onChange={handleChange}
+              className="w-1/4 border-gray-300 rounded-md p-2"
             />
-          </label>
+          
+          </div>
+          <div > 
           <br />
           
-          <label>
-            hourlyrate:
+          <h2 className="text-2xl font-semibold">
+            Hourlyrate:</h2>
             <input
               type="text"
               name="rate"
               value={formData.rate}
               onChange={handleChange}
+              className="w-1/4 border-gray-300 rounded-md p-2"
             />
-      </label>
-      <label>
-            affiliation:
+      
+      </div>
+      <div>
+      <h2 className="text-2xl font-semibold">
+            Affiliation:</h2>
             <input
               type="text"
               name="affiliation"
+              className="w-1/4 border-gray-300 rounded-md p-2"
               value={formData.affiliation}
               onChange={handleChange}
+              
             />
-      </label>
-         
-          <br />      <button type="submit">Update info</button>
-
-        </form>
-         <button type="">View patients</button>
-         </>
+      
+         </div>
+          <br />  
+          <div>
+         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Update info</button>
+         </div>
+        
+        <div>
+        <Link to="viewpatients">
+         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">View patients</button>
+         </Link>
+         </div>
+        
+        
+         </div>
+      </form>
+      
       );
 
 

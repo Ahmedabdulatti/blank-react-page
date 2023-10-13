@@ -14,6 +14,7 @@ import Remove from './remove';
 import Family from './viewfamily';
 import Aptpateint from './js/viewapt';
 import Pres from './viewpres';
+import Viewpatients from './viewpatients';
 function App() {
   return (
     <Router>
@@ -23,18 +24,17 @@ function App() {
         <Route path="reg/doctor" element={<Doctorreg/>} />
         <Route path="/Admin" element={<Admin/>} />
         <Route path="admin/AddAdmin" element={<AddAdminstrator/>} />
-        
         <Route path="admin/remove" element={<Remove/>} />
          <Route path="/admin/reqs" element={<Reqs/>} />
          <Route path="doctor/:id" element={<Doctor/>} />
          <Route path="patient/:id" element={<Patient/>}/>
          <Route path="patient/:id/addmember" element={<Addmember/>}/>
          <Route path="/Patientapps" element={<Patientapps/>}/>
-         
          <Route path="patient/:id/family" element={<Family/>}/>
          <Route path="patient/:id/addmember" element={<Addmember/>}/>
             <Route path="patient/:id/apt" element={<Aptpateint/>}/>
             <Route path="patient/:id/pres" element={<Pres/>}/>
+        <Route path="doctor/:id/viewpatients" element={<Viewpatients/>}/>
       
       </Routes>
     </Router>

@@ -22,10 +22,8 @@ const Pateintreg = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
  await axios.post("http://localhost:5000/createpatient",formData)
-
-
-
     console.log('Form submitted:', formData);
+    alert("Registration complete");
     // You can add further logic to handle form submission (e.g., API call).
   };
 
