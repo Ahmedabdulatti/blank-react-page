@@ -12,6 +12,14 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+input{
+
+  border: 1px black solid;
+}
+button{
+  border: lightskyblue 5px solid;
+  margin:10px
+}
 
 .App-header {
   background-color: #282c34;

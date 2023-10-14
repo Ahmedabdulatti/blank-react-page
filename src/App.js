@@ -16,12 +16,13 @@ import Aptpateint from './js/viewapt';
 import Pres from './viewpres';
 import Viewpatients from './viewpatients';
 import Alldocs from './alldocs';
-import Home from './js/home';
+import Home from './js/home.js'
+import './App.css'
 function App() {
   return (
     <Router>
       <Routes>
-      <Route  path="/" element={<Home/>} />
+        <Route path='/' element={<Home></Home>}></Route>
       <Route  path="/reg" element={<Choose/>} />
         <Route  path="reg/pateint" element={<Pateintreg/>} />
         <Route path="reg/doctor" element={<Doctorreg/>} />
@@ -32,7 +33,7 @@ function App() {
          <Route path="doctor/:id" element={<Doctor/>} />
          <Route path="patient/:id" element={<Patient/>}/>
          <Route path="patient/:id/addmember" element={<Addmember/>}/>
-         <Route path="/Patientapps" element={<Patientapps/>}/>
+       
          <Route path="patient/:id/family" element={<Family/>}/>
          
          <Route path="patient/:id/doctor" element={<Alldocs/>}/>
